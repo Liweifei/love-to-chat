@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div class="headModel" @click="openz">
         <mt-header fixed title="固定在顶部">
             <router-link to="/" slot="left">
                 <mt-button icon="back"></mt-button>
@@ -12,12 +12,17 @@
 </template>
 
 <script>
-import { Header } from 'mint-ui';
 export default {
-  name: 'HelloWorld',
+  name: 'headModel',
   data () {
     return {
       bg: require("../../static/img/chatBg1.jpg")
+    }
+  },
+  methods:{
+    openz:()=>{
+      console.log("zxl")
+      this.$emit("aaaa")
     }
   }
 }
