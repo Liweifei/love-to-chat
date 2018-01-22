@@ -1,7 +1,7 @@
 <template>
     <div class="index">
-        <head-model @aaaa="fromChild"></head-model>
-        <leftPane></leftPane>
+        <head-model @getType="setType"></head-model>
+        <leftPane :sendType="leftPaneType"></leftPane>
         <p class="declaration">愿无岁月可回头，且以深情共白首！</p>
     </div>
     
@@ -11,10 +11,11 @@
 import headModel from "./headModel.vue"
 import leftPane from "./leftPane.vue"
 export default {
-  name: 'HelloWorld',
+  name: 'index',
   data () {
     return {
-      msg: "asd"
+      msg: "asd",
+      leftPaneType: false,
     }
   },
   components: {headModel,leftPane},
@@ -26,8 +27,9 @@ export default {
           instance.close();
         }, 2000);
     },
-    fromChild:()=>{
-        console.log(22)
+    setType(type){
+      console.log("收到的type："+type)
+      this.leftPaneType=type;
     }
   }
 }
@@ -47,5 +49,8 @@ export default {
         .aa{
             color: #fff;
         }
+    }
+    .declaration{
+      float: right;
     }
 </style>

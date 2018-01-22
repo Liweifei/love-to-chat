@@ -1,8 +1,9 @@
 <template>
-    <div class="leftPane">
+    <div :class="{leftPane:true, hide:sendType}">
         <mt-cell class="list" v-for="item in leftPaneData" :title="item.title" :value="item.descride"  :is-link="item.title=='个性标签' || item.title=='年龄'">
             <mt-switch v-if="item.title=='音效'" v-model="switchio"></mt-switch>
         </mt-cell>
+        <div>{{sendType}}</div>
     </div>
 </template>
 
@@ -47,7 +48,8 @@ export default {
             }
         ]
     }
-  }
+  },
+  props:['sendType']
 }
 </script>
 
@@ -57,10 +59,11 @@ export default {
     width: 60%;
     height: 100%;
     position: fixed;
-    left: 0;
+    left: -60%;
     top: 40px;
     bottom: 0;
     background: #000;
+    transition: all 0.3s ease-in-out;
 
     .list{
         background: none;
@@ -78,6 +81,9 @@ export default {
         display: inline-block;
         vertical-align: middle;
     }
+}
+.hide{
+    left: -0;
 }
 
 </style>
