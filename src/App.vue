@@ -21,7 +21,7 @@ export default {
   position: absolute;
   left: 0;
   top: 0;
-  background-image: url(../static/img/chatBg2.jpg);
+  background-image: url(../src/assets/img/chatBg2.jpg);
   background-size: cover;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
